@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kerolos Yousef Zahy | Portfolio</title>
+<meta name="description" content="AI Software Engineer and DevOps & Cloud Engineer. CV, GitHub, LinkedIn and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: the ID card, grown into a page. Ivory sheet, tri-colour stripe, navy footer band, gold rules. */
+:root{
+  --navy:#002452; --midnight:#000c1f; --gold:#FABD0F; --gold-ink:#A47A10; --red:#B90E31; --maroon:#981838;
+  --ivory:#FBF8F1; --ink:#0F1E3A; --muted:#667089; --line:#E2DCCB;
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.stripe{display:flex;height:8px;position:sticky;top:0;z-index:5}
+.stripe i{flex:1}.stripe i:nth-child(1){background:var(--navy)}.stripe i:nth-child(2){background:var(--gold)}.stripe i:nth-child(3){background:var(--red)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:6px 22px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:22px 0 0}
+nav .mark{font:600 11px var(--body);letter-spacing:.34em;color:var(--navy)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;font:600 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+nav a:hover{color:var(--red)}
+.rule{height:2px;margin:22px 0 0;background:linear-gradient(90deg,transparent,var(--red) 12%,var(--red) 88%,transparent);position:relative}
+.rule::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:11px;background:var(--gold);transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 5px var(--ivory)}
+
+.hero{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center;padding:64px 0 56px}
+.photo{position:relative;width:260px;height:320px}
+.photo::before{content:"";position:absolute;inset:12px -12px -12px 12px;background:var(--navy);border-radius:6px}
+.photo .frame{position:absolute;inset:0;background:#fff;border:2px solid var(--gold-ink);border-radius:6px;padding:7px}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;background:#E9ECF2}
+h1{font:700 clamp(34px,6vw,58px)/1.02 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin:0;text-wrap:balance}
+.role{margin:14px 0 0;font:600 clamp(11px,1.9vw,14px) var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--maroon);display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.role .bar{width:3px;height:1.3em;background:var(--navy);border-radius:2px}
+.lead{max-width:60ch;margin:22px 0 0;color:#2b3a57}
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:10px 20px;margin:26px 0 0;font-size:14px}
+.facts dt{font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#8C7B52;border-right:2px solid rgba(164,122,16,.5);padding:5px 18px 5px 0}
+.facts dd{margin:0;align-self:center;font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 11px var(--body);letter-spacing:.2em;text-transform:uppercase;padding:14px 22px;border-radius:3px;border:1.5px solid var(--navy);cursor:pointer;background:transparent;color:var(--navy);transition:transform .15s,background .15s,color .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--navy);color:#fff}
+.btn.solid:hover{background:var(--midnight)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--midnight)}
+
+section{padding:64px 0 0}
+.eyebrow{font:600 11px var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 6px}
+h2{font:700 clamp(28px,4vw,38px)/1.1 var(--display);letter-spacing:.03em;color:var(--navy);margin:0 0 26px;text-transform:uppercase}
+
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:640px){.links{grid-template-columns:1fr}}
+.link{display:flex;flex-direction:column;gap:6px;padding:22px 22px 20px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:4px;text-decoration:none;box-shadow:0 1px 0 rgba(0,36,82,.04);transition:transform .15s,box-shadow .15s}
+.link{position:relative;padding-right:92px}
+.lico{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;box-shadow:0 0 0 3px var(--ivory),0 0 0 4.5px rgba(164,122,16,.55)}
+.brand{fill:currentColor!important;stroke:none!important}
+.lico svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.link:hover .lico{background:var(--red)}
+.link:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,36,82,.12)}
+.link small{font:600 10px var(--body);letter-spacing:.26em;text-transform:uppercase;color:#8C7B52}
+.link strong{font:700 24px/1.15 var(--display);letter-spacing:.03em;color:var(--navy)}
+.link span{font-size:13px;color:var(--muted)}
+.link .go{margin-top:8px;font:600 10px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.card h3{font:700 22px/1.15 var(--display);letter-spacing:.03em;color:var(--navy);margin:0}
+.card p{margin:0;font-size:14px;color:#33415c}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font:600 10px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:#F1ECDD;padding:5px 9px;border-radius:2px}
+.priv{font:600 10px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.card a{font:600 10px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--red);text-decoration:none;align-self:flex-start}
+.card a:hover{text-decoration:underline}
+
+
+.tl{position:relative;list-style:none;margin:0;padding:0 0 0 46px}
+.tl::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--red),var(--gold-ink) 55%,var(--navy))}
+.tl > li{position:relative;padding:0 0 30px}
+.tl > li:last-child{padding-bottom:0}
+.tl > li::before{content:"";position:absolute;left:-40px;top:20px;width:12px;height:12px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 5px var(--ivory)}
+.tl .when{font:600 10px var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--maroon);margin:0 0 8px}
+.tl .card h3{font-size:24px}
+.edu{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.edu > div:first-child{display:grid;gap:10px}
+.edu .lg{width:120px;height:96px;display:flex;align-items:center;justify-content:center}
+.edu .lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+@media (max-width:620px){.edu{grid-template-columns:1fr}.edu .lg{order:-1;justify-content:flex-start}}
+.tl .where{font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#8C7B52;margin:0}
+.card ul{margin:2px 0 0;padding-left:18px;display:grid;gap:7px;font-size:14px;color:#33415c}
+.card ul li{padding-left:2px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.skills .card h3{font-size:20px}
+.skills .tags{margin-top:2px;padding-top:0}
+.info{display:block;max-width:560px;text-decoration:none;border:1px solid #E3D9BE;background:#fff;padding:10px}
+.info img{display:block;width:100%;height:auto}
+.info span{display:block;margin-top:10px;font:600 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.certs .card{border-left:3px solid var(--gold)}
+.certs small{font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#8C7B52}
+.certs .vf{display:inline-block;margin-top:12px;font:600 10px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.certs .vf:hover{text-decoration:underline}
+.certs .st{font:600 10px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--maroon)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:4px;padding:26px}
+.panel h3{font:700 22px var(--display);letter-spacing:.03em;color:var(--navy);margin:0 0 16px}
+label{display:block;font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#8C7B52;margin:14px 0 6px}
+input,textarea{width:100%;font:500 15px var(--body);color:var(--ink);background:var(--ivory);border:1.5px solid var(--line);border-radius:3px;padding:12px 14px}
+input:focus,textarea:focus{outline:none;border-color:var(--gold-ink);box-shadow:0 0 0 3px rgba(250,189,15,.3)}
+textarea{min-height:130px;resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hint{font-size:12.5px;color:var(--muted);margin:12px 0 0}
+.clist{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.clist a,.clist button{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:14px;width:100%;text-align:left;text-decoration:none;background:var(--ivory);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font:inherit;color:inherit;cursor:pointer}
+.clist a:hover,.clist button:hover{border-color:var(--gold-ink)}
+.ico{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center}
+.ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.clist b{display:block;font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#8C7B52}
+.clist em{font-style:normal;font-weight:500;font-size:14.5px;word-break:break-word}
+
+footer{margin-top:80px;background:linear-gradient(90deg,var(--midnight),var(--navy) 50%,var(--midnight));position:relative;color:#fff;text-align:center;padding:26px 20px}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent)}
+footer p{margin:0;font:600 11px var(--body);letter-spacing:.3em}
+footer b{color:var(--gold);font-weight:600}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:34px;padding-top:44px;justify-items:start}
+  .contact{grid-template-columns:1fr}
+  nav ul{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="wrap">
+  <nav aria-label="Sections">
+    <span class="mark">KY&nbsp;·&nbsp;PORTFOLIO</span>
+    <ul>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rule" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="photo"><div class="frame"><img src="photo.jpg" alt="Kerolos Yousef Zahy"></div></div>
+    <div>
+      <h1>Kerolos Yousef<br>Zahy Zaka</h1>
+      <p class="role"><span>AI Software Engineer</span><i class="bar" aria-hidden="true"></i><span>DevOps &amp; Cloud Engineer</span></p>
+      <p class="lead">I build AI-powered software and the secure, automated infrastructure it runs on. MSc in Computer Engineering, with hands-on work in local-LLM and RAG features, CI/CD and GitOps, Kubernetes, Terraform and AWS.</p>
+      <dl class="facts">
+        <dt>Program</dt><dd>Professional Master, Digilians</dd>
+        <dt>Track</dt><dd>AI Powered Software Development</dd>
+        <dt>Email</dt><dd>kerolos.yousef129@gmail.com</dd>
+      </dl>
+      <div class="cta">
+        <a class="btn solid" href="cv-ai.pdf" target="_blank" rel="noopener">CV · AI Software</a>
+        <a class="btn" href="cv-devops.pdf" target="_blank" rel="noopener">CV · DevOps &amp; Cloud</a>
+        <a class="btn gold" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="links" aria-labelledby="h-links">
+    <p class="eyebrow">Find me</p>
+    <h2 id="h-links">Profiles &amp; documents</h2>
+    <div class="links">
+      <a class="link" href="https://github.com/Kerolos129Yousef" target="_blank" rel="noopener"><small>Code</small><strong>GitHub</strong><span>Repositories, pipelines and GitOps manifests.</span><span class="go">Open profile →</span><i class="lico" aria-hidden="true"><svg viewBox="0 0 24 24" class="brand"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></i></a>
+      <a class="link" href="https://www.linkedin.com/in/kerolos-yousef129" target="_blank" rel="noopener"><small>Network</small><strong>LinkedIn</strong><span>Experience, education and recommendations.</span><span class="go">Open profile →</span><i class="lico" aria-hidden="true"><svg viewBox="0 0 24 24" class="brand"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></i></a>
+      <a class="link" href="cv-ai.pdf" target="_blank" rel="noopener"><small>Document</small><strong>CV · AI Software</strong><span>LLM / RAG applications, ML systems, backend.</span><span class="go">Open PDF →</span><i class="lico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></i></a>
+      <a class="link" href="cv-devops.pdf" target="_blank" rel="noopener"><small>Document</small><strong>CV · DevOps &amp; Cloud</strong><span>CI/CD, GitOps, Kubernetes, Terraform, AWS.</span><span class="go">Open PDF →</span><i class="lico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></i></a>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="h-exp">
+    <p class="eyebrow">Career</p>
+    <h2 id="h-exp">Experience</h2>
+    <ol class="tl">
+      <li>
+        <p class="when">Sep 2026 – Nov 2026</p>
+        <article class="card">
+          <h3>AI Software Engineer Intern</h3>
+          <p class="where">Ministry of Justice, Technology Sector (Egyptian State Council)</p>
+          <p>Arabic (RTL) legal case-archive and AI classification platform for administrative-court circuits, running fully on-premise to keep judicial data private.</p>
+          <ul>
+            <li>Ran a fully local LLM/RAG stack (FastEmbed + Ollama) for semantic search and classification, with no external APIs, and added a CI security pipeline (malware, secret and SAST scanning).</li>
+            <li>Designed a bottom-up classification pipeline: HDBSCAN clusters over local embeddings, topics labelled by c-TF-IDF plus a local LLM, with a chief-judge approval flow and a human-in-the-loop review queue.</li>
+            <li>Built the full-stack app (React/TypeScript, Node.js/Express, PostgreSQL + pgvector) with per-circuit data isolation and role-based access.</li>
+          </ul>
+        </article>
+      </li>
+      <li>
+        <p class="when">Sep 2025 – Jul 2026</p>
+        <article class="card">
+          <h3>Cloud / DevOps Engineer Intern</h3>
+          <p class="where">Digilians · Cairo, Egypt</p>
+          <ul>
+            <li>Built CI/CD pipelines (GitHub Actions, Gitea Actions) that automate Docker builds, registry pushes and zero-touch deployments to AWS EC2.</li>
+            <li>Provisioned AWS infrastructure (EC2, VPC, subnets, security groups) with Terraform, and configured servers with Ansible and Ansible Vault.</li>
+            <li>Containerized multi-service apps with multi-stage Docker builds (about 40–50% smaller images) and deployed Kubernetes workloads on k3d through ArgoCD GitOps with Argo Rollouts canary releases.</li>
+            <li>Added Prometheus and Grafana observability, plus quality gates: SBOM with Syft, lint, type-checking and over 70% test coverage.</li>
+          </ul>
+        </article>
+      </li>
+      <li>
+        <p class="when">2022 – 2023</p>
+        <article class="card">
+          <h3>Earlier internships</h3>
+          <ul>
+            <li><strong>Android Developer Intern</strong>, Information Technology Institute (ITI), Jul–Sep 2023: Android apps in Java with Agile practices.</li>
+            <li><strong>Frontend Developer Intern</strong>, Route Company, Mar–Jul 2022: React, JavaScript and Bootstrap 5 web apps; shipped a Product Management System with CRUD and a responsive dashboard.</li>
+          </ul>
+        </article>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills" aria-labelledby="h-skills">
+    <p class="eyebrow">Toolbox</p>
+    <h2 id="h-skills">Technical skills</h2>
+    <div class="skills">
+      <article class="card"><h3>AI / ML</h3><div class="tags"><span>PyTorch</span><span>scikit-learn</span><span>RAG</span><span>FastEmbed</span><span>pgvector</span><span>HDBSCAN</span><span>c-TF-IDF</span><span>QLoRA</span><span>GGUF / llama.cpp</span><span>Ollama</span><span>TranAD</span></div></article>
+      <article class="card"><h3>Languages</h3><div class="tags"><span>Python</span><span>TypeScript / JavaScript</span><span>SQL</span><span>Bash</span></div></article>
+      <article class="card"><h3>Backend &amp; Frontend</h3><div class="tags"><span>FastAPI</span><span>Node.js / Express</span><span>React</span><span>REST APIs</span><span>Streamlit</span></div></article>
+      <article class="card"><h3>Data</h3><div class="tags"><span>PostgreSQL</span><span>SQLite</span><span>MongoDB</span><span>Apache Spark</span></div></article>
+      <article class="card"><h3>Cloud &amp; DevOps</h3><div class="tags"><span>AWS (EC2, S3, VPC, IAM, SSM, EMR, ECR)</span><span>Docker</span><span>Kubernetes (k3d)</span><span>Terraform</span><span>Ansible</span><span>GitHub Actions</span><span>Gitea Actions</span><span>ArgoCD</span></div></article>
+      <article class="card"><h3>Quality, security &amp; observability</h3><div class="tags"><span>pytest</span><span>Bandit</span><span>pip-audit</span><span>Gitleaks</span><span>Trivy</span><span>Syft (SBOM)</span><span>Prometheus</span><span>Grafana</span></div></article>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="h-proj">
+    <p class="eyebrow">Selected work</p>
+    <h2 id="h-proj">Projects</h2>
+    <div class="proj">
+      <article class="card">
+        <h3>Judicial Case Archive &amp; AI Classification</h3>
+        <p>Arabic (RTL) case-archive platform for administrative-court circuits at the Ministry of Justice, running fully on-premise. A local LLM/RAG stack handles semantic search, and cases are clustered with HDBSCAN and labelled by c-TF-IDF plus a local LLM, with chief-judge review and a human-in-the-loop queue.</p>
+        <div class="tags"><span>React / TypeScript</span><span>Node.js</span><span>PostgreSQL + pgvector</span><span>Ollama</span><span>HDBSCAN</span></div>
+        <span class="priv">Team project · private repository · judicial data stays on-premise</span>
+      </article>
+      <article class="card">
+        <h3>ICS Security Platform</h3>
+        <p>Graduation capstone: anomaly detection for a water-chlorination industrial control system, shipped through a six-gate DevSecOps pipeline with OIDC and SSM deployment on AWS.</p>
+        <div class="tags"><span>GitHub Actions</span><span>Terraform</span><span>Ansible</span><span>Docker Scout</span></div>
+        <a href="https://github.com/Kerolos129Yousef/water-chlorination-ics-security" target="_blank" rel="noopener">View repository →</a>
+      </article>
+      <article class="card">
+        <h3>Sentiment App · GitOps</h3>
+        <p>ML sentiment service delivered with ArgoCD and Argo Rollouts: a five-step canary (20 → 40 → 60 → 80 → 100%) with Kustomize overlays and self-healing sync.</p>
+        <div class="tags"><span>Kubernetes</span><span>ArgoCD</span><span>Argo Rollouts</span><span>Kustomize</span></div>
+        <a href="https://github.com/Kerolos129Yousef/ml-sentiment-app-gitops" target="_blank" rel="noopener">View repository →</a>
+      </article>
+      <article class="card">
+        <h3>AI Study Companion</h3>
+        <p>Local-LLM study assistant with retrieval-augmented answers over the learner's own material.</p>
+        <div class="tags"><span>RAG</span><span>Ollama</span><span>pgvector</span><span>Python</span></div>
+        <a href="https://github.com/Kerolos129Yousef/ai-study-companion" target="_blank" rel="noopener">View repository →</a>
+      </article>
+      <article class="card">
+        <h3>Tech Chat Assistant</h3>
+        <p>Chat assistant deployed on AWS with a custom VPC, public subnet, route table, security group and internet gateway.</p>
+        <div class="tags"><span>AWS</span><span>Networking</span><span>Backend</span></div>
+        <a href="https://github.com/Kerolos129Yousef/tech_chat_bot" target="_blank" rel="noopener">View repository →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="h-edu">
+    <p class="eyebrow">Background</p>
+    <h2 id="h-edu">Education</h2>
+    <ol class="tl">
+      <li>
+        <p class="when">Sep 2025 – Jul 2026</p>
+        <article class="card edu">
+          <div>
+            <h3>MSc, Computer Engineering</h3>
+            <p class="where">Queen's University · Kingston, Canada (Remote)</p>
+            <p>Focus on AI-based software engineering, distributed systems and cloud-native architectures.</p>
+          </div>
+          <div class="lg"><img src="logo-queens.png" alt="Queen's University logo"></div>
+        </article>
+      </li>
+      <li>
+        <p class="when">Sep 2019 – Jun 2023</p>
+        <article class="card edu">
+          <div>
+            <h3>BSc, Computer Science &amp; Artificial Intelligence</h3>
+            <p class="where">Helwan University · Cairo, Egypt</p>
+            <p>Excellent with Honors (GPA 3.55), specialization in Medical Informatics. Capstone: non-invasive anemia detection with deep learning on mobile. National-level participant in the Egyptian Collegiate Programming Contest (ECPC, 2021).</p>
+          </div>
+          <div class="lg"><img src="logo-helwan.png" alt="Helwan University logo"></div>
+        </article>
+      </li>
+    </ol>
+  </section>
+
+  <section id="certifications" aria-labelledby="h-cert">
+    <p class="eyebrow">Credentials</p>
+    <h2 id="h-cert">Certifications</h2>
+    <div class="certs">
+      <article class="card"><small>Cloud</small><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services · 2026</p><a class="vf" href="https://www.credly.com/badges/d257e598-8153-4f6c-b220-2a4766f3b1d6/linked_in_profile" target="_blank" rel="noopener">Verify credential →</a></article>
+      <article class="card"><small>Cloud</small><h3>AWS Certified Solutions Architect – Associate</h3><p>Amazon Web Services</p><span class="st">In progress · expected Dec 2026</span></article>
+      <article class="card"><small>AI &amp; ML</small><h3>Fundamentals of Deep Learning</h3><p>NVIDIA · Mar 2026</p><a class="vf" href="https://learn.nvidia.com/certificates?id=1tO0Ys3ITkGJkXM3sgBKrQ" target="_blank" rel="noopener">Verify credential →</a></article>
+      <article class="card"><small>AI &amp; ML</small><h3>Supervised Machine Learning: Regression &amp; Classification</h3><p>DeepLearning.AI · Feb 2026</p><a class="vf" href="https://www.coursera.org/account/accomplishments/verify/YM4SK13QJHVN" target="_blank" rel="noopener">Verify credential →</a></article>
+      <article class="card"><small>DevOps</small><h3>KodeKloud DevOps courses</h3><p>Docker for Beginners (hands-on labs), Docker Basics, Git Basics and the DevOps prerequisite course · Nov–Dec 2025</p></article>
+    </div>
+  </section>
+
+  <section id="infographic" aria-labelledby="h-info">
+    <p class="eyebrow">At a glance</p>
+    <h2 id="h-info">One-page infographic</h2>
+    <a class="info" href="infographic.pdf" target="_blank" rel="noopener"><img src="infographic.jpg" alt="One-page infographic of Kerolos Yousef: experience, skills, projects, education and certifications" loading="lazy"><span>Open the PDF →</span></a>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <p class="eyebrow">Contact</p>
+    <h2 id="h-contact">Send a message</h2>
+    <div class="contact">
+      <div class="panel">
+        <h3>Write to my Gmail</h3>
+        <form id="f" autocomplete="off">
+          <label for="n">Your name</label>
+          <input id="n" type="text" placeholder="Full name">
+          <label for="s">Subject</label>
+          <input id="s" type="text" value="Opportunity at the Digilians Job Fair">
+          <label for="m">Message</label>
+          <textarea id="m" placeholder="Hello Kerolos, ..."></textarea>
+          <div class="row">
+            <a class="btn solid" id="gm" href="#" target="_blank" rel="noopener">Open in Gmail</a>
+            <a class="btn" id="mt" href="#">Use mail app</a>
+            <button class="btn" id="cp" type="button">Copy message</button>
+          </div>
+          <p class="hint" id="st" role="status">Nothing is sent from this page. The buttons open your own email with the message filled in.</p>
+        </form>
+      </div>
+      <div class="panel">
+        <h3>Direct contacts</h3>
+        <ul class="clist">
+          <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=kerolos.yousef129@gmail.com" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><b>Email</b><em>kerolos.yousef129@gmail.com</em></span></a></li>
+          <li><a href="https://wa.me/201553961624" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.3 7.9L3 21l1.2-4.5A9 9 0 1 1 21 12Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.5-2-1-1 .7a4 4 0 0 1-1.9-1.9l.7-1-1-2Z"/></svg></span><span><b>WhatsApp</b><em>+20 155 396 1624</em></span></a></li>
+          <li><a href="tel:+201553961624"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span><span><b>Phone</b><em>+20 155 396 1624</em></span></a></li>
+          <li><a href="https://www.linkedin.com/in/kerolos-yousef129" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" class="brand"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span><b>LinkedIn</b><em>linkedin.com/in/kerolos-yousef129</em></span></a></li>
+          <li><a href="https://github.com/Kerolos129Yousef" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" class="brand"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><span><b>GitHub</b><em>github.com/Kerolos129Yousef</em></span></a></li>
+          <li><button type="button" id="ce"><span class="ico"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></span><span><b>Copy email address</b><em id="ces">Click to copy</em></span></button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+<footer><p>DIGILIANS <b>·</b> <span lang="ar" style="font-family:'Cairo',sans-serif;letter-spacing:0;color:var(--gold)">الرواد الرقميون</span></p></footer>
+
+<script>
+(function(){
+  var TO='kerolos.yousef129@gmail.com';
+  var n=document.getElementById('n'),s=document.getElementById('s'),m=document.getElementById('m');
+  var gm=document.getElementById('gm'),mt=document.getElementById('mt'),cp=document.getElementById('cp'),st=document.getElementById('st');
+  function body(){var b=m.value.trim();var who=n.value.trim();return b+(who?'\n\n'+who:'');}
+  function sync(){
+    var su=encodeURIComponent(s.value),bd=encodeURIComponent(body());
+    gm.href='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(TO)+'&su='+su+'&body='+bd;
+    mt.href='mailto:'+TO+'?subject='+su+'&body='+bd;
+  }
+  function flash(el,txt,orig){el.textContent=txt;setTimeout(function(){el.textContent=orig},2000);}
+  function copy(text,done,fail){
+    try{navigator.clipboard.writeText(text).then(done,fail);}catch(e){fail();}
+  }
+  [n,s,m].forEach(function(e){e.addEventListener('input',sync);});
+  sync();
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();});
+  cp.addEventListener('click',function(){
+    copy('To: '+TO+'\nSubject: '+s.value+'\n\n'+body(),
+      function(){flash(cp,'Copied','Copy message');},
+      function(){st.textContent='Copy was blocked here. Select the text and copy it, or write to '+TO+'.';});
+  });
+  var ce=document.getElementById('ce'),ces=document.getElementById('ces');
+  ce.addEventListener('click',function(){
+    copy(TO,function(){flash(ces,'Copied','Click to copy');},function(){ces.textContent=TO;});
+  });
+})();
+</script>
+</body>
+</html>
