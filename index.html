@@ -135,6 +135,30 @@ footer b{color:var(--gold);font-weight:600}
   .contact{grid-template-columns:1fr}
   nav ul{gap:16px}
 }
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  nav{flex-direction:column;align-items:flex-start;gap:10px;padding-top:16px}
+  nav ul{flex-wrap:nowrap;overflow-x:auto;gap:18px;width:100%;padding:4px 0 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  nav ul::-webkit-scrollbar{display:none}
+  nav li{flex:none}
+  nav a{display:inline-block;padding:8px 0;white-space:nowrap}
+  .rule{margin-top:10px}
+  .hero{padding:32px 0 28px;gap:30px}
+  .photo{width:min(240px,calc(100% - 14px));height:auto;aspect-ratio:13/16}
+  section{padding-top:48px}
+  h2{margin-bottom:20px}
+  .card{padding:18px}
+  .tl{padding-left:30px}
+  .tl::before{left:7px}
+  .tl > li{padding-bottom:22px}
+  .tl > li::before{left:-30px;top:14px}
+  .tl .card h3{font-size:20px}
+  .tl .card ul{padding-left:18px}
+  .btn{width:100%;justify-content:center;min-height:46px}
+  .info{padding:8px}
+  footer{margin-top:56px}
+  footer p{letter-spacing:.2em;line-height:1.7}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -149,6 +173,8 @@ footer b{color:var(--gold);font-weight:600}
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#infographic">Infographic</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
